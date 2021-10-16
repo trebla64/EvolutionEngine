@@ -1,3 +1,4 @@
+Address,MangledName,ObjectFile
 00000000,?CreateNewBrain@@YAPAVPersistentObject@@XZ,Brain.obj
 00000090,?GetClassNameX@Brain@@UBEPBDXZ,Brain.obj
 000000a0,??5@YAAAVCreaturesArchive@@AAV0@AAPAVBrain@@@Z,Brain.obj
