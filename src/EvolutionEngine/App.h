@@ -1,4 +1,11 @@
 #pragma once
 
-class App
-{};
+namespace EvolutionEngine
+{
+
+    class App
+    {
+    public:
+    };
+
+}

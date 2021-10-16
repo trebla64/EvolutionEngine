@@ -1,11 +1,11 @@
 #pragma once
 
-enum FlightCategory {
-    UNKNOWN = 0
-};
-
-class FlightRecorder
+namespace EvolutionEngine
 {
-public:
-    void Log(FlightCategory category, const char *fmt, ...);
-};
+
+    class FlightRecorder
+    {
+    public:
+    };
+
+}
