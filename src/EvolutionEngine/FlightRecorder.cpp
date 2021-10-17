@@ -37,8 +37,41 @@ namespace EvolutionEngine
         }
     }
 
+    // 0x0054B550
     void __cdecl FlightRecorder::Log(FlightCategory category, const char *fmt, ...)
     {
+        char buffer[4096];
+        va_list va;
+
+        va_start(va, fmt);
+        if (category || category & this->categories)
+        {
+            bool bOpenedFile = false;
+            if (this->fileHandle)
+                goto skip_open;
+            if (this->fileName[0])
+                this->fileHandle = fopen(this->fileName, "a+tc");
+            bOpenedFile = true;
+            if (this->fileHandle)
+            {
+            skip_open:
+                if (bOpenedFile)
+                {
+                    // TODO: Decompile some extra junk in here
+                }
+
+                // TODO: Rework this using more secure method
+                int len = vsprintf(buffer, fmt, va);
+                buffer[len] = '\n';
+                buffer[len + 1] = '\0';
+                fwrite(buffer, 1, len + 1, this->fileHandle);
+                fflush(this->fileHandle);
+            }
+            else
+            {
+                std::cerr << "Failed to make flight recorder file " << std::endl;
+            }
+        }
     }
 
     // 0x0054B760
