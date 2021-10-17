@@ -36,3 +36,5 @@ bin/engine.exe.*
 scripts/tmp/
 .vscode/
 .vs/
+x64/
+EvolutionEngine.vcxproj.user
