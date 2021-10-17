@@ -10,6 +10,12 @@ namespace EvolutionEngine
     bool gbQuitting;
 
 #ifdef _WIN32
+    // 0x00477690
+    bool InitInstance(HINSTANCE hInstance)
+    {
+        return true;
+    }
+
     // 0x00476FC0
     bool HandleMessages(UINT wMsgFilterMin, UINT wMsgFilterMax, uint8_t a1)
     {
@@ -35,6 +41,7 @@ namespace EvolutionEngine
                     if (Msg.message == 1024)
                     {
                         // TODO: Some more stuff in here
+                        App::GetTheApp()->UpdateApp();
                     }
                     else
                     {
@@ -57,14 +64,20 @@ namespace EvolutionEngine
     }
 
     // 0x00477280
-    int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
+    int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int)
     {
         FlightRecorder &flightRecorder = GetFlightRecorder();
         App *pApp = App::GetTheApp();
 
         flightRecorder.Log(FlightCategory::UNKNOWN64, "Start of WinMain\n");
-
         timeBeginPeriod(1);
+
+        if (pApp->ProcessCommandLine())
+        {
+            if (InitInstance(hInstance))
+            {
+            }
+        }
 
         flightRecorder.Log(FlightCategory::UNKNOWN16, "Message Loop has terminated.");
         timeEndPeriod(1);

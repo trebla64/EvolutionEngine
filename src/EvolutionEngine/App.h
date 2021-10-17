@@ -11,6 +11,7 @@ namespace EvolutionEngine
         static App *GetTheApp();
         void UpdateApp();
         void DoLoadWorld(const std::string &name);
+        bool ProcessCommandLine();
     };
 
 }
