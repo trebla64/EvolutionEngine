@@ -8,4 +8,6 @@ namespace EvolutionEngine
     public:
     };
 
+    App *GetTheApp();
+
 }

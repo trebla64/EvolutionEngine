@@ -1,3 +1,13 @@
 #include "App.h"
 
-// TODO: Implement
+namespace EvolutionEngine
+{
+
+    App ourApp;
+
+    App *GetTheApp()
+    {
+        return &ourApp;
+    }
+
+}
