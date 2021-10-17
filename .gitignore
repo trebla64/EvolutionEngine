@@ -34,3 +34,4 @@
 
 bin/engine.exe.*
 scripts/tmp/
+.vscode/
