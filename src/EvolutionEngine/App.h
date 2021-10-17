@@ -12,6 +12,7 @@ namespace EvolutionEngine
         void UpdateApp();
         void DoLoadWorld(const std::string &name);
         bool ProcessCommandLine();
+        bool InitConfigFiles();
     };
 
 }

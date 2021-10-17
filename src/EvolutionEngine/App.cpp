@@ -23,4 +23,16 @@ namespace EvolutionEngine
 
     }
 
+    // 0x005511F0
+    bool App::ProcessCommandLine()
+    {
+        return true;
+    }
+
+    // 0x005578B0
+    bool App::InitConfigFiles()
+    {
+        return true;
+    }
+
 }

@@ -13,6 +13,12 @@ namespace EvolutionEngine
     // 0x00477690
     bool InitInstance(HINSTANCE hInstance)
     {
+        FlightRecorder &flightRecorder = GetFlightRecorder();
+        App *pApp = App::GetTheApp();
+
+        flightRecorder.Log(FlightCategory::UNKNOWN64, "Init config files\n");
+        pApp->InitConfigFiles();
+
         return true;
     }
 
