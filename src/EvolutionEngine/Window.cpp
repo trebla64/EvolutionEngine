@@ -12,6 +12,8 @@ namespace EvolutionEngine
     bool gbQuitting;
     bool gbTerminate; // 0x0060EB59
     bool gbUnknown0;  // 0x0060EBD8
+    bool gbUnknown1;    // 0x0060EB5A
+    bool gbUnknown2;    // 0x0060EB58
 
     // 0x00477690
     bool InitInstance(HINSTANCE hInstance)
@@ -25,7 +27,14 @@ namespace EvolutionEngine
         return true;
     }
 
-    // 0x00478B80
+    // 0x00478D40
+    bool SetGameTicking(bool unknown)
+    {
+        // TODO: Implement
+        return true;        
+    }
+
+    // 0x00478B80 [DONE]
     bool DoStartup(HWND hWnd)
     {
         FlightRecorder &flightRecorder = GetFlightRecorder();
@@ -44,7 +53,15 @@ namespace EvolutionEngine
             result = Win32Server::StartInterface(hWnd);
             if (result)
             {
-
+                gbUnknown1 = false;
+                gbUnknown2 = false;
+                flightRecorder.Log(FlightCategory::UNKNOWN64, "Kick starting timer");
+                result = SetGameTicking(true);
+                if (result)
+                {
+                    flightRecorder.Log(FlightCategory::UNKNOWN64, "Finished DoStartup");
+                    result = true;
+                }
             }
         }
 
