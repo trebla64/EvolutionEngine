@@ -1,3 +1,13 @@
+#include "StdAfx.h"
 #include "ErrorMessageHandler.h"
 
-// TODO: Implement
+namespace EvolutionEngine
+{
+
+    // 0x00480120
+    void ErrorMessageHandler::SetWindow(HWND hWnd)
+    {
+        // TODO: Implement
+    }
+
+}

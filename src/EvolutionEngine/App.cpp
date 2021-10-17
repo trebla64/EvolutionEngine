@@ -1,5 +1,7 @@
 #include "App.h"
 
+// DoStartup -> App::Init
+
 namespace EvolutionEngine
 {
 
@@ -14,7 +16,6 @@ namespace EvolutionEngine
     // 0x0054E000
     void App::UpdateApp()
     {
-
     }
 
     // 0x0054E4D0
@@ -26,11 +27,18 @@ namespace EvolutionEngine
     // 0x00550E10
     void App::DoLoadWorld(const std::string &name)
     {
-
+        // TODO: Implement
     }
 
     // 0x005511F0
     bool App::ProcessCommandLine()
+    {
+        // TODO: Implement
+        return true;
+    }
+
+    // 0x0054D210
+    bool App::Init()
     {
         // TODO: Implement
         return true;

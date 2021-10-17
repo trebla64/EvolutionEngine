@@ -13,6 +13,7 @@ namespace EvolutionEngine
         void SetUpMainView();
         void DoLoadWorld(const std::string &name);
         bool ProcessCommandLine();
+        bool Init();
         bool InitConfigFiles();
     };
 

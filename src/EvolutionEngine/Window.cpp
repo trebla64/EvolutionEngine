@@ -3,13 +3,16 @@
 #include "C2eServices.h"
 #include "FlightRecorder.h"
 #include "App.h"
+#include "ErrorMessageHandler.h"
+#include "Win32Server.h"
 
 namespace EvolutionEngine
 {
 
     bool gbQuitting;
+    bool gbTerminate; // 0x0060EB59
+    bool gbUnknown0;  // 0x0060EBD8
 
-#ifdef _WIN32
     // 0x00477690
     bool InitInstance(HINSTANCE hInstance)
     {
@@ -22,6 +25,33 @@ namespace EvolutionEngine
         return true;
     }
 
+    // 0x00478B80
+    bool DoStartup(HWND hWnd)
+    {
+        FlightRecorder &flightRecorder = GetFlightRecorder();
+        App *pApp = App::GetTheApp();
+        bool result;
+
+        flightRecorder.Log(FlightCategory::UNKNOWN64, "In DoStartup");
+        gbTerminate = false;
+        gbUnknown0 = false;
+        ErrorMessageHandler::SetWindow(hWnd);
+        flightRecorder.Log(FlightCategory::UNKNOWN64, "Calling App init");
+        result = pApp->Init();
+        if (result)
+        {
+            flightRecorder.Log(FlightCategory::UNKNOWN64, "Starting external interface");
+            result = Win32Server::StartInterface(hWnd);
+            if (result)
+            {
+
+            }
+        }
+
+        return result;
+    }
+
+#ifdef _WIN32
     // 0x00476FC0
     bool HandleMessages(UINT wMsgFilterMin, UINT wMsgFilterMax, uint8_t a1)
     {
