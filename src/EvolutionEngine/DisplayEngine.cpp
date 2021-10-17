@@ -1,3 +1,12 @@
 #include "DisplayEngine.h"
 
-// TODO: Implement
+namespace EvolutionEngine
+{
+
+    // 0x00471F60
+    void DisplayEngine::ClearBuffers()
+    {
+
+    }
+
+}
