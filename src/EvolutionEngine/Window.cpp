@@ -115,28 +115,32 @@ namespace EvolutionEngine
 
         return result;
     }
-
-    // 0x00477280
-    int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int)
-    {
-        FlightRecorder &flightRecorder = GetFlightRecorder();
-        App *pApp = App::GetTheApp();
-
-        flightRecorder.Log(FlightCategory::UNKNOWN64, "Start of WinMain\n");
-        timeBeginPeriod(1);
-
-        if (pApp->ProcessCommandLine())
-        {
-            if (InitInstance(hInstance))
-            {
-            }
-        }
-
-        flightRecorder.Log(FlightCategory::UNKNOWN16, "Message Loop has terminated.");
-        timeEndPeriod(1);
-
-        return 0;
-    }
 #endif
 
 }
+
+using namespace EvolutionEngine;
+
+#ifdef _WIN32
+// 0x00477280
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE, LPSTR, int)
+{
+    FlightRecorder& flightRecorder = GetFlightRecorder();
+    App* pApp = App::GetTheApp();
+
+    flightRecorder.Log(FlightCategory::UNKNOWN64, "Start of WinMain\n");
+    timeBeginPeriod(1);
+
+    if (pApp->ProcessCommandLine())
+    {
+        if (InitInstance(hInstance))
+        {
+        }
+    }
+
+    flightRecorder.Log(FlightCategory::UNKNOWN16, "Message Loop has terminated.");
+    timeEndPeriod(1);
+
+    return 0;
+}
+#endif
