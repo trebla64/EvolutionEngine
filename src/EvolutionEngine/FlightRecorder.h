@@ -9,6 +9,7 @@ namespace EvolutionEngine
 
     enum FlightCategory
     {
+        UNKNOWN16 = 16,
         UNKNOWN64 = 64
     };
 
