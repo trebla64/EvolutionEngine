@@ -1,5 +1,7 @@
 #pragma once
 
+#include "FlightRecorder.h"
+
 namespace EvolutionEngine
 {
 
@@ -7,5 +9,7 @@ namespace EvolutionEngine
     {
     public:
     };
+
+    FlightRecorder &GetFlightRecorder();
 
 }

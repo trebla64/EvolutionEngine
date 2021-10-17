@@ -1,3 +1,14 @@
 #include "C2eServices.h"
+#include "FlightRecorder.h"
 
-// TODO: Implement
+namespace EvolutionEngine
+{
+
+    static FlightRecorder gFlightRecorder;
+
+    FlightRecorder &GetFlightRecorder()
+    {
+        return gFlightRecorder;
+    }
+
+}
