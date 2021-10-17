@@ -12,7 +12,7 @@ namespace EvolutionEngine
     {
         FlightRecorder &flightRecorder = EvolutionEngine::GetFlightRecorder();
 
-        flightRecorder.Log(0x40, "Start of WinMain\n");
+        flightRecorder.Log(FlightCategory::UNKNOWN64, "Start of WinMain\n");
 
         return 0;
     }
