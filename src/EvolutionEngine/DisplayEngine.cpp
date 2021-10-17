@@ -9,4 +9,10 @@ namespace EvolutionEngine
 
     }
 
+    // 0x00472130
+    bool DisplayEngine::Start(/* TODO: Fix arguments */)
+    {
+        return true;
+    }
+
 }
