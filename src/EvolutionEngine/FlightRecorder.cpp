@@ -1,3 +1,10 @@
 #include "FlightRecorder.h"
 
-// TODO: Implement
+namespace EvolutionEngine
+{
+
+    void __cdecl FlightRecorder::Log(FlightCategory category, const char *fmt, ...)
+    {
+    }
+
+}

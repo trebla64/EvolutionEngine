@@ -11,6 +11,9 @@ namespace EvolutionEngine
     int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     {
         FlightRecorder &flightRecorder = EvolutionEngine::GetFlightRecorder();
+
+        flightRecorder.Log(0x40, "Start of WinMain\n");
+
         return 0;
     }
 #endif
