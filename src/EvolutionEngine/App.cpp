@@ -5,7 +5,8 @@ namespace EvolutionEngine
 
     App ourApp;
 
-    App *GetTheApp()
+    // 0x0054CC50
+    App *App::GetTheApp()
     {
         return &ourApp;
     }

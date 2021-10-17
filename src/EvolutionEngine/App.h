@@ -8,10 +8,9 @@ namespace EvolutionEngine
     class App
     {
     public:
+        static App *GetTheApp();
         void UpdateApp();
         void DoLoadWorld(const std::string &name);
     };
-
-    App *GetTheApp();
 
 }

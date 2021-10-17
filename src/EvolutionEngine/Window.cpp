@@ -7,14 +7,18 @@
 namespace EvolutionEngine
 {
 
-#if _WIN32
+#ifdef _WIN32
     // 0x00477280
     int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     {
         FlightRecorder &flightRecorder = GetFlightRecorder();
-        App *pApp = GetTheApp();
+        App *pApp = App::GetTheApp();
 
         flightRecorder.Log(FlightCategory::UNKNOWN64, "Start of WinMain\n");
+
+        timeBeginPeriod(1);
+
+        timeEndPeriod(1);
 
         return 0;
     }
